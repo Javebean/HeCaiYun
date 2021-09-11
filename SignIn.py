@@ -17,12 +17,11 @@ Referer = os.environ['REFERER']  # 抓包referer
 UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 MCloudApp/7.6.0"
 
 
+#bark push
 def push(title, content):
     print(title+"\n"+content)
-    url = "https://www.pushplus.plus/send"
-    data = { 'token':PUSHPLUS_TOKEN, 'title':title, 'content':content }
-    # 发送请求
-    res = requests.post(url=url, data=data).text
+    url = "https://api.day.app/Wqemw2bfoMB4tZYLeNL86M/"+title+"/"+content+"?group=DayCheck"
+    res = requests.get(url=url).text
     # 输出发送结果
     print(res)
 
