@@ -6,6 +6,7 @@
 
 import os
 import json
+import time
 from urllib import parse
 
 import requests
@@ -20,9 +21,11 @@ UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) Apple
 #bark push
 def push(title, content):
     print(title+"\n"+content)
+    print (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     url = "https://api.day.app/Wqemw2bfoMB4tZYLeNL86M/"+title+"/"+content+"?group=DayCheck"
     res = requests.get(url=url).text
     # 输出发送结果
+    print(url)
     print(res)
 
 
