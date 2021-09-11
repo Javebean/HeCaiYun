@@ -15,6 +15,7 @@ OpenLuckDraw = True if os.getenv("LUCK_DRAW") == 'true' else False  # 是否开�
 PUSHPLUS_TOKEN = os.environ['PUSHPLUS_TOKEN']  # PushPlus Token
 Cookie = os.environ['COOKIE']  # 抓包Cookie
 Referer = os.environ['REFERER']  # 抓包referer
+Bark_token = os.environ['BARK']  # 抓包referer
 UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 MCloudApp/7.6.0"
 
 
@@ -22,7 +23,7 @@ UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) Apple
 def push(title, content):
     print(title+"\n"+content)
     print (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    url = "https://api.day.app/Wqemw2bfoMB4tZYLeNL86M/"+title+"/"+content+"?group=DayCheck"
+    url = "https://api.day.app/"+Bark_token+"/"+title+"/"+content+"?group=DayCheck"
     res = requests.get(url=url).text
     # 输出发送结果
     print(url)
